@@ -6,9 +6,11 @@ type SubmitMessageArgs = {
   message: string
 }
 
-const submitMessage = makeFunctionReference<'mutation', SubmitMessageArgs, { ok: boolean }>(
-  'contact:submitMessage',
-)
+const submitMessageAndNotify = makeFunctionReference<
+  'action',
+  SubmitMessageArgs,
+  { ok: boolean; notified?: boolean; warning?: string }
+>('contact:submitMessageAndNotify')
 
 const corsHeaders = {
   'access-control-allow-origin': '*',
@@ -44,9 +46,8 @@ http.route({
         message: typeof body.message === 'string' ? body.message : '',
       }
 
-      await ctx.runMutation(submitMessage, payload)
-
-      return jsonResponse(200, { ok: true })
+      const result = await ctx.runAction(submitMessageAndNotify, payload)
+      return jsonResponse(200, result)
     } catch {
       return jsonResponse(400, { ok: false, error: 'Invalid request payload.' })
     }

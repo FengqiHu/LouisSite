@@ -62,6 +62,30 @@ Relevant backend files:
 - `convex/contact.ts`
 - `convex/http.ts`
 
+### Email Notification Setup (Resend)
+
+Contact submissions are saved to Convex and can also trigger an email notification.
+
+1. Create a [Resend](https://resend.com/) API key.
+2. Set Convex environment variables:
+
+```bash
+npx convex env set RESEND_API_KEY re_xxxxxxxxx
+npx convex env set CONTACT_TO_EMAIL hufq0611@outlook.com
+npx convex env set CONTACT_FROM_EMAIL "Portfolio Contact <onboarding@resend.dev>"
+```
+
+3. Deploy Convex functions:
+
+```bash
+npx convex deploy
+```
+
+Notes:
+- `CONTACT_FROM_EMAIL` must be a sender Resend accepts. In test mode, use `onboarding@resend.dev`.
+- For production delivery, verify your own domain/sender in Resend.
+- If env vars are missing, the message is still stored in Convex but notification email is skipped.
+
 ## Notes
 
 - Original source images are read from the parent directory and converted into `public/images`.
