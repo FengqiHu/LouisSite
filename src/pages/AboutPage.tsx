@@ -1,4 +1,4 @@
-import PhotoCarousel from '../components/PhotoCarousel'
+import PhotoCarousel from "../components/PhotoCarousel";
 import {
   aboutIntro,
   aboutNarrative,
@@ -8,7 +8,7 @@ import {
   growthStory,
   hobbies,
   resume,
-} from '../data/siteContent'
+} from "../data/siteContent";
 
 export default function AboutPage() {
   return (
@@ -30,26 +30,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section about-growth">
-        <article className="growth-highlight">
-          <img
-            src={growthStory.image}
-            alt={growthStory.imageAlt}
-            width={1280}
-            height={720}
-            loading="lazy"
-            decoding="async"
-          />
-          <div className="growth-highlight__text">
-            <p>{growthStory.second}</p>
-            <a className="inline-link" href={resume.href} target="_blank" rel="noreferrer">
-              View Resume
-            </a>
-          </div>
-        </article>
-        <p className="growth-highlight__support">{growthStory.first}</p>
-      </section>
-
       <section className="section about-childhood-layout">
         <article className="glass-card text-focus-card">
           <p className="section-kicker">From a child to full-stack</p>
@@ -68,11 +48,14 @@ export default function AboutPage() {
         <article className="glass-card childhood-showcase">
           <div className="childhood-showcase__head">
             <p className="section-kicker">Early Milestones</p>
-            <h3>Key Moments</h3>
+            <h2>Key Moments</h2>
           </div>
           <div className="childhood-image-grid">
             {childhoodMoments.map((moment) => (
-              <figure className="childhood-image-card" key={`image-${moment.title}`}>
+              <figure
+                className="childhood-image-card"
+                key={`image-${moment.title}`}
+              >
                 <img
                   src={moment.image}
                   alt={moment.alt}
@@ -88,36 +71,68 @@ export default function AboutPage() {
         </article>
       </section>
 
+      <section className="section about-growth">
+        <article className="growth-cinematic">
+          <header className="growth-cinematic__header">
+            <p className="section-kicker">My Professional Growth</p>
+            <h2>{growthStory.title}</h2>
+          </header>
+          <p className="growth-cinematic__lead">{growthStory.first}</p>
+          <div className="growth-cinematic__split">
+            <img
+              src={growthStory.image}
+              alt={growthStory.imageAlt}
+              width={1280}
+              height={720}
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="growth-cinematic__detail">
+              <p>{growthStory.second}</p>
+              <a
+                className="inline-link"
+                href={resume.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                View Resume
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+
       <section className="section about-offline">
         <div className="section-head section-head--tight">
           <p className="section-kicker">Beyond Code</p>
           <h2>Life Offline</h2>
         </div>
-        <article className="glass-card media-card media-card--compact">
-          <img
-            src="/images/shibuya.webp"
-            alt="Street life in Shibuya, Tokyo"
-            width={480}
-            height={320}
-            loading="lazy"
-            decoding="async"
-          />
-          <div>
+        <article className="about-offline__layout">
+          
+          <PhotoCarousel shots={galleryShots} />
+
+          <div className="glass-card about-offline__story">
             <p className="section-kicker">Life Snapshot</p>
             <h3>What I Do Beyond Coding</h3>
             <p>{hobbies}</p>
             <a
-              className="inline-link"
+              className="about-offline__video-link"
               href="https://www.bilibili.com/video/BV1CS421K7mF/?spm_id_from=333.1387.homepage.video_card.click"
               target="_blank"
               rel="noreferrer"
             >
-              Example video: Razer Mouse Review
+              <img
+                src="/images/razer-review.webp"
+                alt="Razer Mouse Review video thumbnail"
+                width={1200}
+                loading="lazy"
+                decoding="async"
+              />
             </a>
           </div>
         </article>
-        <PhotoCarousel shots={galleryShots} />
       </section>
     </div>
-  )
+  );
 }

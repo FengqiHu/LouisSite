@@ -176,7 +176,7 @@ export const growthStory = {
   first:
     'These words describe my professional journey. I enjoy exploring unfamiliar areas and cutting-edge technology, even when the process is full of bugs and uncertainty.',
   second:
-    'I still remember deploying an application to a server for the first time: Linux setup, domain configuration, and CI/CD integration. Weeks of trial and error made the architecture click.',
+    'I still remember deploying an application to a server for the first time: Linux setup, domain configuration, and CI/CD integration. Weeks of trial and error made the architecture click. No matter how difficult a task is, I face it directly, learn through iteration, and come back stronger.',
   image: '/images/server-maintenance.webp',
   imageAlt: 'Server deployment and maintenance workspace',
 }

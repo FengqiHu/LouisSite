@@ -43,7 +43,10 @@ const copyJobs = [
   { input: '足球.svg', output: 'soccer.svg' },
 ]
 
-const rootCopyJobs = [{ input: 'Resume.pdf', output: 'resume.pdf' }]
+const rootCopyJobs = [
+  { input: 'Resume.pdf', output: 'resume.pdf' },
+  { input: 'icon.png', output: 'icon.png' },
+]
 
 const exists = async (target) => {
   try {

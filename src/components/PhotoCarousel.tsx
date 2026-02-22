@@ -70,7 +70,6 @@ export default function PhotoCarousel({ shots }: PhotoCarouselProps) {
             {String(activeIndex + 1).padStart(2, '0')} / {String(shots.length).padStart(2, '0')}
           </p>
           <h3>{activeShot.title}</h3>
-          <p className="photo-carousel__autoplay">{isPaused ? 'Paused' : 'Auto-changing'}</p>
         </div>
         <div className="photo-carousel__controls">
           <button
