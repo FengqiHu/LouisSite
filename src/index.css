@@ -1082,6 +1082,24 @@ main {
   font-weight: 600;
 }
 
+.contact-social-grid__resume-item {
+  grid-column: 1 / -1;
+}
+
+.contact-social-grid__resume-link {
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--bg-elevated);
+}
+
+.contact-social-grid__resume-link span {
+  color: var(--primary-deep);
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
 .contact-social-grid img {
   width: 18px;
   height: 18px;
