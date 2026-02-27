@@ -16,7 +16,7 @@ export default function ProjectsPage() {
 
       <section className="section">
         <div className="project-grid">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <article className="project-card" key={project.id}>
               <img
                 src={project.image}
