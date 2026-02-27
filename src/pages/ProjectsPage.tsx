@@ -18,7 +18,6 @@ export default function ProjectsPage() {
         <div className="project-grid">
           {projects.map((project, index) => (
             <article className="project-card" key={project.id}>
-              <p className="project-card__index">0{index + 1}</p>
               <img
                 src={project.image}
                 alt={project.alt}

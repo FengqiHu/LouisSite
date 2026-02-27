@@ -16,6 +16,11 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci --include=dev
+      - name: Deploy Convex (prod)
+        if: ${{ secrets.CONVEX_DEPLOY_KEY != '' }}
+        run: npx convex deploy -y
+        env:
+          CONVEX_DEPLOY_KEY: ${{ secrets.CONVEX_DEPLOY_KEY }}
       - run: npm run build
         env:
           VITE_CONVEX_SITE_URL: ${{ secrets.VITE_CONVEX_SITE_URL }}

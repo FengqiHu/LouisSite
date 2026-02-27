@@ -17,6 +17,7 @@ export type StoryMoment = {
   description: string
   image: string
   alt: string
+  imageFit?: 'cover' | 'contain'
 }
 
 export type GalleryShot = {
@@ -149,11 +150,11 @@ export const aboutStats = [
 
 export const childhoodMoments: StoryMoment[] = [
   {
-    title: 'The LEGO RCX era',
+    title: 'My first PC',
     description:
-      'Exploring LEGO robots when I was 8 opened the door to technology and problem solving through experiments.',
-    image: '/images/rcx.webp',
-    alt: 'LEGO RCX robot',
+      'In middle school I sourced parts and assembled my first custom PC, which pushed me from curiosity to practical engineering.',
+    image: '/images/first-pc.webp',
+    alt: 'First custom PC build',
   },
   {
     title: 'My Arduino phase',
@@ -163,11 +164,12 @@ export const childhoodMoments: StoryMoment[] = [
     alt: 'Hardware tinkering and Arduino stage',
   },
   {
-    title: 'My first PC',
+    title: 'The LEGO RCX era',
     description:
-      'In middle school I sourced parts and assembled my first custom PC, which pushed me from curiosity to practical engineering.',
-    image: '/images/first-pc.webp',
-    alt: 'First custom PC build',
+      'Exploring LEGO robots when I was 8 opened the door to technology and problem solving through experiments.',
+    image: '/images/rcx.webp',
+    alt: 'LEGO RCX robot',
+    imageFit: 'contain',
   },
 ]
 

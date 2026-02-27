@@ -209,7 +209,7 @@ main {
 .section-kicker {
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  font-size: 0.74rem;
+  font-size: clamp(0.82rem, 0.9vw, 0.92rem);
   color: var(--primary-deep);
   font-weight: 700;
 }
@@ -748,7 +748,7 @@ main {
   display: block;
 }
 
-.childhood-image-card:nth-child(3) img {
+.childhood-image-card--contain img {
   object-fit: contain;
   background: #fff;
 }

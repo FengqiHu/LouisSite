@@ -11,6 +11,22 @@ import {
 } from "../data/siteContent";
 
 export default function AboutPage() {
+  const childhoodTextOrder = [
+    "The LEGO RCX era",
+    "My Arduino phase",
+    "My first PC",
+  ];
+
+  const childhoodMomentsByTitle = new Map(
+    childhoodMoments.map((moment) => [moment.title, moment]),
+  );
+
+  const childhoodTextMoments = childhoodTextOrder
+    .map((title) => childhoodMomentsByTitle.get(title))
+    .filter(
+      (moment): moment is (typeof childhoodMoments)[number] => Boolean(moment),
+    );
+
   return (
     <div className="page about-page">
       <section className="section hero-block">
@@ -36,7 +52,7 @@ export default function AboutPage() {
           <h2>A Developer with Grit.</h2>
           <p>{aboutNarrative.origin}</p>
           <ul className="origin-list">
-            {childhoodMoments.map((moment) => (
+            {childhoodTextMoments.map((moment) => (
               <li key={moment.title}>
                 <h3>{moment.title}</h3>
                 <p>{moment.description}</p>
@@ -53,7 +69,7 @@ export default function AboutPage() {
           <div className="childhood-image-grid">
             {childhoodMoments.map((moment) => (
               <figure
-                className="childhood-image-card"
+                className={`childhood-image-card${moment.imageFit === "contain" ? " childhood-image-card--contain" : ""}`}
                 key={`image-${moment.title}`}
               >
                 <img
@@ -102,14 +118,12 @@ export default function AboutPage() {
         </article>
       </section>
 
-
       <section className="section about-offline">
         <div className="section-head section-head--tight">
           <p className="section-kicker">Beyond Code</p>
           <h2>Life Offline</h2>
         </div>
         <article className="about-offline__layout">
-          
           <PhotoCarousel shots={galleryShots} />
 
           <div className="glass-card about-offline__story">
