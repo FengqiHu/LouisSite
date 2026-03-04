@@ -10,6 +10,7 @@
 
 import type * as contact from "../contact.js";
 import type * as http from "../http.js";
+import type * as visits from "../visits.js";
 
 import type {
   ApiFromModules,
@@ -20,6 +21,7 @@ import type {
 declare const fullApi: ApiFromModules<{
   contact: typeof contact;
   http: typeof http;
+  visits: typeof visits;
 }>;
 
 /**

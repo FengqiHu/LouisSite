@@ -1,14 +1,26 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import SiteShell from './components/SiteShell'
+import { trackVisit } from './lib/trackVisit'
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 
+let hasTrackedVisit = false
+
 export default function App() {
+  useEffect(() => {
+    if (hasTrackedVisit) {
+      return
+    }
+
+    hasTrackedVisit = true
+    void trackVisit()
+  }, [])
+
   return (
     <BrowserRouter>
       <ScrollToTop />

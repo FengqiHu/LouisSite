@@ -46,6 +46,9 @@ The contact form works in two modes:
 - With `VITE_CONVEX_SITE_URL` configured, messages are posted to Convex route `POST /contact`.
 - Without it, the form falls back to opening a `mailto:` draft.
 
+Visitor tracking uses the same `VITE_CONVEX_SITE_URL` and sends a fire-and-forget request to
+`POST /track-visit` on app load.
+
 ### Setup
 
 1. Deploy or run Convex for this project.
@@ -61,6 +64,26 @@ Relevant backend files:
 - `convex/schema.ts`
 - `convex/contact.ts`
 - `convex/http.ts`
+- `convex/visits.ts`
+
+### Visitor Logs
+
+Each visit creates one record in the `visitorLogs` table with:
+
+- IP (raw + masked)
+- path
+- user agent
+- referer
+- location fields (`country`, `region`, `city`, `latitude`, `longitude`) when IP geolocation succeeds
+
+To inspect recent logs:
+
+```bash
+npx convex run visits:latestVisitorLogs '{"limit":20}'
+```
+
+Privacy note: if you keep collecting IP/location data, make sure your site privacy policy discloses
+this behavior and applicable retention period.
 
 ### Email Notification Setup (Resend)
 
