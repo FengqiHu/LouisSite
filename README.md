@@ -53,11 +53,20 @@ Visitor tracking uses the same `VITE_CONVEX_SITE_URL` and sends a fire-and-forge
 
 1. Deploy or run Convex for this project.
 2. Ensure `convex/` functions are loaded.
-3. Add `.env.local`:
+3. For local development, add `.env.local`:
 
 ```bash
-VITE_CONVEX_SITE_URL=https://<your-deployment>.convex.site
+VITE_CONVEX_SITE_URL=https://<your-dev-deployment>.convex.site
 ```
+
+4. For production build/deploy, use `.env.production`:
+
+```bash
+VITE_CONVEX_SITE_URL=https://<your-prod-deployment>.convex.site
+```
+
+`vite build` loads `.env.production` automatically, so production deploy won't
+accidentally point to a dev Convex deployment.
 
 Relevant backend files:
 
