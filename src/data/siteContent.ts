@@ -96,11 +96,11 @@ export const interests = ['Hardwares', 'Photography', 'Music', 'Soccer', 'Movies
 
 export const featuredStacks: StackCard[] = [
   {
-    id: 'java-backend',
-    category: 'Java | Back-End',
-    title: 'Backend Architecture',
+    id: 'full-stack',
+    category: 'Java | Spring Boot | TypeScript | React | Git',
+    title: 'Full-Stack Development',
     detail:
-      'Strong Java fundamentals, data structures, and algorithms. I use design patterns and modularization to keep systems efficient and maintainable.',
+      'Solid full-stack fundamentals, data structures, and algorithms. I use design patterns and modularization to keep systems efficient and maintainable.',
   },
   {
     id: 'spring-boot',
@@ -118,11 +118,11 @@ export const featuredStacks: StackCard[] = [
     icon: '/images/python.webp',
   },
   {
-    id: 'web-frontend',
-    category: 'JavaScript | Web',
-    title: 'Frontend Engineering',
+    id: 'ai-engineering',
+    category: 'API|LLM Integration | RAG | MAP | Prompt Engineering',
+    title: 'AI Engineering',
     detail:
-      'I connect frontend logic with backend services to deliver smooth user interactions and strong product reliability.',
+      'I connect AI capabilities with backend services to deliver intelligent solutions and seamless user experiences.',
     icon: '/images/vue.webp',
   },
 ]
