@@ -55,7 +55,7 @@ export const hero = {
 
 export const resume = {
   title: 'Resume (PDF)',
-  href: '/resume.pdf',
+  href: '/resume_Fengqi_Hu.pdf',
 }
 
 export const socialLinks: SocialLink[] = [

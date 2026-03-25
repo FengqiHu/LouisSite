@@ -44,7 +44,7 @@ const copyJobs = [
 ]
 
 const rootCopyJobs = [
-  { input: 'Resume.pdf', output: 'resume.pdf' },
+  { input: 'Resume.pdf', output: 'resume_Fengqi_Hu.pdf' },
   { input: 'icon.png', output: 'icon.png' },
 ]
 
