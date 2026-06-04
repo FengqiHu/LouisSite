@@ -18,15 +18,26 @@ export default function ProjectsPage() {
         <div className="project-grid">
           {projects.map((project) => (
             <article className="project-card" key={project.id}>
-              <img
-                src={project.image}
-                alt={project.alt}
-                width={720}
-                height={420}
-                loading="lazy"
-                decoding="async"
-                style={project.imagePosition ? { objectPosition: project.imagePosition } : undefined}
-              />
+              <div className="project-card__media">
+                <img
+                  className="project-card__media-bg"
+                  src={project.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  className="project-card__media-img"
+                  src={project.image}
+                  alt={project.alt}
+                  width={720}
+                  height={420}
+                  loading="lazy"
+                  decoding="async"
+                  style={project.imagePosition ? { objectPosition: project.imagePosition } : undefined}
+                />
+              </div>
               <div className="project-card__body">
                 <ul className="chip-list chip-list--dense">
                   {project.tags.map((tag) => (
