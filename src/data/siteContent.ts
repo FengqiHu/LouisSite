@@ -254,6 +254,26 @@ export const hobbies =
 
 export const projects: ProjectItem[] = [
   {
+    id: 'wearwise',
+    title: 'WearWise - AI powered Personal Wardrobe',
+    tags: ['AI project','Full Stack', 'Multi Agent', 'RAG'],
+    summary:
+      'WearWise is a AI powered wardrobe that can recommend outfits based on your preference, occasions, appearance, and weathers, aiming to reduce the time spent trying on clothes. Here we used RAG and different ways to make recommendation result better.',
+    image: '/images/wearwise.png',
+    alt: 'WearWise project screenshot',
+    href: 'https://github.com/FengqiHu/wearwise',
+  },
+  {
+    id: 'hopshare',
+    title: 'HopShare',
+    tags: ['Rideshare','Full Stack', 'Message Queue'],
+    summary:
+      'HopShare was created to solve transportation issue faced by Hopkins students. By using this app, students can share or request rides to reduce the travel fees. We implemented a message queue for instant messaging, and a friend system for social.',
+    image: '/images/hopshare.png',
+    alt: 'WearWise project screenshot',
+    href: 'https://github.com/FengqiHu/hopshare',
+  },
+  {
     id: 'kitty',
     title: 'Kitty Gourmet Food Hall',
     tags: ['Full Stack', 'Spring Boot', 'Vue.js', 'Server Deployment'],
