@@ -33,9 +33,10 @@ export type ProjectItem = {
   title: string
   tags: string[]
   summary: string
-  image: string
-  alt: string
-  href: string
+  status?: string
+  image?: string
+  alt?: string
+  href?: string
   imagePosition?: string
 }
 
@@ -128,7 +129,7 @@ export const featuredStacks: StackCard[] = [
 ]
 
 export const aboutIntro = {
-  title: 'Builder. Engineer. Problem Solver.',
+  title: 'A little about me.',
   description:
     "I don't just focus on how code is written, but also how it runs. From handwriting Java Swing systems to configuring Linux servers, I enjoy building robust systems end-to-end.",
 }
@@ -174,9 +175,9 @@ export const childhoodMoments: StoryMoment[] = [
 ]
 
 export const growthStory = {
-  title: 'Step by Step, Rising in Spirals',
+  title: 'Learning by building.',
   first:
-    'These words describe my professional journey. I enjoy exploring unfamiliar areas and cutting-edge technology, even when the process is full of bugs and uncertainty.',
+    'I enjoy exploring unfamiliar areas and learning through hands-on work, even when the process is full of bugs and uncertainty.',
   second:
     'I still remember deploying an application to a server for the first time: Linux setup, domain configuration, and CI/CD integration. Weeks of trial and error made the architecture click. No matter how difficult a task is, I face it directly, learn through iteration, and come back stronger.',
   image: '/images/server-maintenance.webp',
@@ -254,45 +255,63 @@ export const hobbies =
 
 export const projects: ProjectItem[] = [
   {
-    id: 'wearwise',
-    title: 'WearWise - AI powered Personal Wardrobe',
-    tags: ['AI project','Full Stack', 'Multi Agent', 'RAG'],
+    id: 'robust-rllib',
+    title: 'Robust-RLlib: Benchmarking RL Robustness under Deployment Shifts',
+    tags: ['Research', 'Reinforcement Learning', 'SAC', 'IQL', 'Sim-to-Real'],
+    status: 'In preparation',
     summary:
-      'WearWise is a AI powered wardrobe that can recommend outfits based on your preference, occasions, appearance, and weathers, aiming to reduce the time spent trying on clothes. Here we used RAG and different ways to make recommendation result better.',
+      'Robust-RLlib benchmarks how reinforcement learning policies behave under deployment noise and action delays. I built composable perturbations and a shared evaluation protocol for SAC, IQL, and other methods, and validated policy transfer on a real robot arm. I am second author on the manuscript, which is being prepared for submission to ICLR.',
+  },
+  {
+    id: 'wearwise',
+    title: 'WearWise - AI-Powered Personal Wardrobe',
+    tags: ['React', 'Express', 'MongoDB', 'Gemini API', 'RAG', 'RabbitMQ'],
+    summary:
+      'WearWise helps users manage their wardrobe, get personalized outfit recommendations, and preview looks through virtual try-on. I built the React/Express/MongoDB platform with Gemini APIs and RAG to combine wardrobe inventory, preferences, and real-time weather, using NanoBanana 2 for try-on images. RabbitMQ handles asynchronous image uploads, and the platform is deployed on Vercel and Render.',
     image: '/images/wearwise.png',
     alt: 'WearWise project screenshot',
     href: 'https://github.com/FengqiHu/wearwise',
   },
   {
-    id: 'hopshare',
-    title: 'HopShare',
-    tags: ['Rideshare','Full Stack', 'Message Queue'],
-    summary:
-      'HopShare was created to solve transportation issue faced by Hopkins students. By using this app, students can share or request rides to reduce the travel fees. We implemented a message queue for instant messaging, and a friend system for social.',
-    image: '/images/hopshare.png',
-    alt: 'WearWise project screenshot',
-    href: 'https://github.com/FengqiHu/hopshare',
-  },
-  {
     id: 'kitty',
-    title: 'Kitty Gourmet Food Hall',
-    tags: ['Full Stack', 'Spring Boot', 'Vue.js', 'Server Deployment'],
+    title: 'Kitty Gourmet Food Hall - Online Shopping Platform',
+    tags: ['Vue 3', 'Spring Boot', 'Redis', 'Docker', 'Nginx', 'CI/CD'],
     summary:
-      'A full-stack e-commerce platform for cat owners with Vue frontend, Spring Boot backend, and production-focused server maintenance. Designed for high-traffic stability.',
+      'Kitty Gourmet Food Hall is a Vue 3/Spring Boot shopping platform covering user accounts, product browsing, shopping carts, and orders. I led full-stack development and used Redis caching and database indexing to support 1,000+ concurrent requests with response times below 500 ms. I also handled API and database design, Docker/Nginx deployment, and CI/CD pipelines.',
     image: '/images/project-kitty.webp',
     alt: 'Kitty Gourmet Food Hall project screenshot',
     href: 'https://github.com/eci-ice/Market',
   },
   {
     id: 'python-trends',
-    title: "Python's evolution on Stack Overflow: topic trend analysis",
-    tags: ['Data Science', 'Research', 'Machine Learning', 'Pandas'],
+    title: "Python's Evolution on Stack Overflow: An Empirical Analysis of Topic Trends",
+    tags: ['Research', 'Data Analysis', 'GBDT', 'Machine Learning'],
     summary:
-      'Analyzed 2M+ Stack Overflow posts to surface Python ecosystem shifts and technical pain points. Built a GBDT model to forecast post popularity and published first-author work in COLA.',
+      'This study analyzed 2M+ Python-related Stack Overflow posts to understand changing developer interests, topics, and library usage. I used multi-rater annotation and optimized a GBDT classifier, achieving 91.38% accuracy on all posts and 90.56% on unanswered posts, outperforming four baseline models. The work was published in the Journal of Computer Languages, with me as first author.',
     image: '/images/project-python-trends.webp',
     alt: 'Python trend analysis project visual',
     href: 'https://www.sciencedirect.com/science/article/abs/pii/S2590118425000267',
     imagePosition: 'center 82%',
+  },
+  {
+    id: 'forum-reco',
+    title: 'User Profile-Based Recommendation System for a Programmer Forum',
+    tags: ['Vue 3', 'Node.js', 'User Profiling', 'Jaccard Similarity'],
+    summary:
+      'This Vue 3/Node.js system recommends programmer forum content based on users\' changing interests and behavior. I processed 5,000+ CSDN posts, built profiles from tags, browsing history, and likes, and used Jaccard similarity to match users with relevant content. I owned the recommendation algorithm, frontend-backend integration, and UI, and hold the software copyright.',
+    image: '/images/project-coder-forum.webp',
+    alt: 'Recommendation system interface',
+    href: 'https://github.com/FengqiHu/CoderRecommendation',
+  },
+  {
+    id: 'hopshare',
+    title: 'HopShare',
+    tags: ['Rideshare', 'Full Stack', 'Message Queue'],
+    summary:
+      'HopShare helps Hopkins students share or request rides to reduce travel costs. We built instant messaging with a message queue and added a friend system to support social connections.',
+    image: '/images/hopshare.png',
+    alt: 'HopShare project screenshot',
+    href: 'https://github.com/FengqiHu/hopshare',
   },
   {
     id: 'tile-defect',
@@ -303,16 +322,6 @@ export const projects: ProjectItem[] = [
     image: '/images/project-yolo.webp',
     alt: 'YOLO ceramic defect detection project',
     href: 'https://github.com/FengqiHu',
-  },
-  {
-    id: 'forum-reco',
-    title: 'Programmer Forum Recommendation System',
-    tags: ['Recommendation Algorithms', 'User Profiling', 'Node.js', 'Data Mining'],
-    summary:
-      'Built a recommendation engine that personalizes content for developer communities through behavioral profiling, improving retrieval efficiency and reducing information overload.',
-    image: '/images/project-coder-forum.webp',
-    alt: 'Recommendation system interface',
-    href: 'https://github.com/FengqiHu/CoderRecommendation',
   },
   {
     id: 'wechat',
@@ -326,15 +335,25 @@ export const projects: ProjectItem[] = [
   },
 ]
 
-export const internship = {
-  company: 'Hundsun Technologies Inc.',
-  locationAndTime: 'Hangzhou, China | Oct 2024 - Dec 2024',
-  role: 'Engineer Assistant (Intern)',
-  summary:
-    "Used the company's LightCode LLM tools to review business code and generate standardized JavaDocs. Supported transaction middle-platform backend development and optimized business logic with modular design patterns.",
-  image: '/images/project-hundsun.webp',
-  href: 'https://en.hundsun.com/',
-}
+export const workExperiences = [
+  {
+    company: 'Aosenuma',
+    location: 'Remote, United States',
+    period: 'May - Aug 2026',
+    role: 'AI Developer',
+    summary:
+      'Handled requirements analysis, feature development, testing, and project management. Built an event-driven Node.js/Express service to synchronize GitHub Issues and Notion tasks using HMAC webhook verification, TTL-based write guards, configurable label mapping, and fuzzy search. Improved speech-to-text processing efficiency by 70% with finer audio segmentation and asynchronous processing, reduced token usage by 20%, and accelerated page loading through caching and SQL query optimization.',
+  },
+  {
+    company: 'Hundsun Technologies Inc.',
+    location: 'Hangzhou, China',
+    period: 'Oct - Dec 2024',
+    role: 'Software Engineering Intern',
+    summary:
+      'Developed middleware for a trading platform to support transaction flows between clients and financial markets. Used internal LLM tools for code generation and helped develop prompt guidelines, improving efficiency by 30%. Collaborated with senior engineers to refactor three core service modules and resolve 5+ business logic defects, improving data accuracy in transaction order processing.',
+    href: 'https://en.hundsun.com/',
+  },
+]
 
 export const contactInfo = {
   phone: '(+1) 410-805-1208',

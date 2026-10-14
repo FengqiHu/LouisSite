@@ -49,7 +49,7 @@ export default function ContactPage() {
       <section className="section hero-block">
         <div className="section-head">
           <p className="section-kicker">Contact Me</p>
-          <h1>If You Have Any Queries.</h1>
+          <h1>Get in touch.</h1>
           <p>
             Phone: <a href={phoneHref}>{contactInfo.phone}</a>
             <br />
@@ -67,7 +67,7 @@ export default function ContactPage() {
       </section>
 
       <section className="section contact-grid">
-        <article className="glass-card contact-form-card">
+        <article className="content-panel contact-form-card">
           <h2>Send me a Message</h2>
           <form className="contact-form" onSubmit={handleSubmit}>
             <label>
@@ -146,7 +146,7 @@ export default function ContactPage() {
           </ul>
         </article>
 
-        <article className="glass-card contact-extra-card">
+        <article className="content-panel contact-extra-card">
           <h2>Scan for WeChat</h2>
           <div className="qr-block">
             <img

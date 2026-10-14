@@ -47,9 +47,9 @@ export default function AboutPage() {
       </section>
 
       <section className="section about-childhood-layout">
-        <article className="glass-card text-focus-card">
+        <article className="content-panel text-focus-card">
           <p className="section-kicker">From a child to full-stack</p>
-          <h2>A Developer with Grit.</h2>
+          <h2>Where it started.</h2>
           <p>{aboutNarrative.origin}</p>
           <ul className="origin-list">
             {childhoodTextMoments.map((moment) => (
@@ -61,7 +61,7 @@ export default function AboutPage() {
           </ul>
         </article>
 
-        <article className="glass-card childhood-showcase">
+        <article className="content-panel childhood-showcase">
           <div className="childhood-showcase__head">
             <p className="section-kicker">Early Milestones</p>
             <h2>Key Moments</h2>
@@ -126,7 +126,7 @@ export default function AboutPage() {
         <article className="about-offline__layout">
           <PhotoCarousel shots={galleryShots} />
 
-          <div className="glass-card about-offline__story">
+          <div className="content-panel about-offline__story">
             <p className="section-kicker">Life Snapshot</p>
             <h3>What I Do Beyond Coding</h3>
             <p>{hobbies}</p>

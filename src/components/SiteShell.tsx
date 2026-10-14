@@ -24,7 +24,7 @@ export default function SiteShell() {
               className="brand-mark__img"
               src="/images/logo.webp"
               alt={siteTitle}
-              height ={40}
+              height={40}
               loading="eager"
               decoding="async"
             />
@@ -34,13 +34,14 @@ export default function SiteShell() {
             className="menu-button"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
+            aria-controls="primary-navigation"
             onClick={() => setMenuOpen((value) => !value)}
           >
             <span />
             <span />
             <span />
           </button>
-          <nav className={`site-nav${isMenuOpen ? ' is-open' : ''}`} aria-label="Primary navigation">
+          <nav id="primary-navigation" className={`site-nav${isMenuOpen ? ' is-open' : ''}`} aria-label="Primary navigation">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
