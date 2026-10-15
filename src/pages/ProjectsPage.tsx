@@ -1,28 +1,28 @@
-import { projects, workExperiences } from '../data/siteContent'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function ProjectsPage() {
+  const { content: { projects, workExperiences, ui } } = useLanguage()
   return (
     <div className="page projects-page">
       <section className="section hero-block">
         <div className="section-head">
-          <p className="section-kicker">My Projects</p>
-          <h1>Projects & research.</h1>
+          <p className="section-kicker">{ui.myProjects}</p>
+          <h1>{ui.projectsTitle}</h1>
           <p>
-            From full-stack platforms to deep learning systems, these projects reflect my focus on
-            practical impact, scalability, and clean architecture.
+            {ui.projectsIntro}
           </p>
         </div>
       </section>
 
-      <section className="section projects-list-section" aria-label="Project list">
+      <section className="section projects-list-section" aria-label={ui.projectList}>
         <div className="project-list">
           {projects.map((project) => (
             <article className="project-card" key={project.id}>
               <div className="project-card__header">
                 <h2>{project.title}</h2>
                 {project.href ? (
-                  <a className="inline-link project-card__link" href={project.href} target="_blank" rel="noreferrer" aria-label={`View reference for ${project.title}`}>
-                    View Reference <span aria-hidden="true">↗</span>
+                  <a className="inline-link project-card__link" href={project.href} target="_blank" rel="noreferrer" aria-label={`${ui.referenceFor} ${project.title}`}>
+                    {ui.reference} <span aria-hidden="true">↗</span>
                   </a>
                 ) : project.status ? (
                   <span className="project-card__status">{project.status}</span>
@@ -34,7 +34,7 @@ export default function ProjectsPage() {
                 ))}
               </ul>
               <details className="project-card__details">
-                <summary>Details</summary>
+                <summary>{ui.details}</summary>
                 <p>{project.summary}</p>
               </details>
             </article>
@@ -44,8 +44,8 @@ export default function ProjectsPage() {
 
       <section className="section work-experience-section">
         <div className="section-head">
-          <p className="section-kicker">Professional Experience</p>
-          <h2>Work experience.</h2>
+          <p className="section-kicker">{ui.professional}</p>
+          <h2>{ui.workExperience}</h2>
         </div>
         <div className="work-experience-list">
           {workExperiences.map((experience) => (
@@ -55,7 +55,7 @@ export default function ProjectsPage() {
                 <p>{experience.role}</p>
                 <p>{experience.location}</p>
                 <p className="work-experience__period">{experience.period}</p>
-                {experience.href ? <a className="inline-link" href={experience.href} target="_blank" rel="noreferrer">Company Website</a> : null}
+                {experience.href ? <a className="inline-link" href={experience.href} target="_blank" rel="noreferrer">{ui.companyWebsite}</a> : null}
               </div>
               <p>{experience.summary}</p>
             </article>

@@ -46,8 +46,8 @@ export const hero = {
   eyebrow: "Hello, I'm",
   title: 'Louis Fengqi Hu',
   subtitle:
-    'Master of Engineering student in Computer Science at Johns Hopkins University with a strong software engineering foundation. I focus on Java/Spring Boot enterprise systems and applied machine learning.',
-  major: 'Software Engineering',
+    'Master of Engineering student in Computer Science at Johns Hopkins University, focused on machine learning engineering and AI agents. My work spans reinforcement learning robustness, retrieval-augmented generation, and LLM-powered applications, with an emphasis on evaluating models and building useful AI systems.',
+  focus: 'ML Engineering & AI Agents',
   email: 'hufq0611@outlook.com',
   phone: '(+1) 410-805-1208',
   portrait: '/images/hero-portrait.webp',
@@ -83,48 +83,46 @@ export const socialLinks: SocialLink[] = [
 ]
 
 export const skills = [
-  'Software Engineering',
   'Machine Learning',
-  'API Development',
-  'Design Pattern',
-  'Data Analysis',
-  'Backend Development',
-  'Server Maintenance',
-  'CI/CD',
+  'AI Agents',
+  'RAG',
+  'LLM Integration',
+  'Reinforcement Learning',
+  'Computer Vision',
+  'Model Evaluation',
+  'AI Application Development',
 ]
 
 export const interests = ['Hardwares', 'Photography', 'Music', 'Soccer', 'Movies']
 
 export const featuredStacks: StackCard[] = [
   {
-    id: 'full-stack',
-    category: 'Java | Spring Boot | TypeScript | React | Git',
-    title: 'Full-Stack Development',
+    id: 'agents-rag',
+    category: 'LLMs | RAG | APIs | Prompt Engineering',
+    title: 'AI Agents & RAG',
     detail:
-      'Solid full-stack fundamentals, data structures, and algorithms. I use design patterns and modularization to keep systems efficient and maintainable.',
+      'I build LLM-powered applications that combine retrieved context, user preferences, and external APIs. I am exploring AI agents that use this context and tools to carry out useful tasks.',
   },
   {
-    id: 'spring-boot',
-    category: 'Spring Boot | Back-End',
-    title: 'API & Microservices',
+    id: 'ml-engineering',
+    category: 'Python | PyTorch | YOLO | Data Analysis',
+    title: 'Machine Learning Engineering',
     detail:
-      'Specialized in scalable REST APIs and microservices, including database integration and deployment workflows.',
+      'From computer vision to data-driven classification, I work on data preparation, model development, and evaluation, with attention to accuracy and practical deployment constraints.',
   },
   {
-    id: 'python-ml',
-    category: 'Python | Machine Learning',
-    title: 'Deep Learning & Data Analysis',
+    id: 'rl-evaluation',
+    category: 'Reinforcement Learning | SAC | IQL | Sim-to-Real',
+    title: 'RL Robustness & Evaluation',
     detail:
-      'I build practical models with OpenCV and TensorFlow, including YOLO-based detection workflows and empirical analysis pipelines.',
-    icon: '/images/python.webp',
+      'I study how reinforcement learning policies behave under deployment noise and action delays, building shared evaluation protocols and validating policy transfer on a real robot arm.',
   },
   {
-    id: 'ai-engineering',
-    category: 'API|LLM Integration | RAG | MAP | Prompt Engineering',
-    title: 'AI Engineering',
+    id: 'ai-systems',
+    category: 'Node.js | APIs | RabbitMQ | Docker',
+    title: 'Applied AI Systems',
     detail:
-      'I connect AI capabilities with backend services to deliver intelligent solutions and seamless user experiences.',
-    icon: '/images/vue.webp',
+      'I connect models with working products through API integration, asynchronous processing, and deployment. My software engineering background supports reliable AI applications and efficient data flows.',
   },
 ]
 

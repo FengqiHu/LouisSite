@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useLanguage } from '../i18n/LanguageContext'
 import type { GalleryShot } from '../data/siteContent'
 
 type PhotoCarouselProps = {
@@ -18,6 +19,7 @@ const cycleIndex = (next: number, total: number) => {
 }
 
 export default function PhotoCarousel({ shots }: PhotoCarouselProps) {
+  const { content: { ui } } = useLanguage()
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setPaused] = useState(false)
 
@@ -47,7 +49,7 @@ export default function PhotoCarousel({ shots }: PhotoCarouselProps) {
   return (
     <article
       className="photo-carousel"
-      aria-label="Photo carousel"
+      aria-label={ui.carousel}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -76,28 +78,28 @@ export default function PhotoCarousel({ shots }: PhotoCarouselProps) {
             type="button"
             className="button button--ghost"
             onClick={() => setActiveIndex((index) => cycleIndex(index - 1, shots.length))}
-            aria-label="Previous photo"
+            aria-label={ui.previousPhoto}
           >
-            Prev
+            {ui.previous}
           </button>
           <button
             type="button"
             className="button button--ghost"
             onClick={() => setActiveIndex((index) => cycleIndex(index + 1, shots.length))}
-            aria-label="Next photo"
+            aria-label={ui.nextPhoto}
           >
-            Next
+            {ui.next}
           </button>
         </div>
       </div>
-      <div className="photo-carousel__dots" role="tablist" aria-label="Choose photo">
+      <div className="photo-carousel__dots" role="tablist" aria-label={ui.choosePhoto}>
         {shots.map((shot, index) => (
           <button
-            key={shot.title}
+            key={shot.image}
             type="button"
             role="tab"
             aria-selected={index === activeIndex}
-            aria-label={`Show ${shot.title}`}
+            aria-label={`${ui.showPhoto} ${shot.title}`}
             className={`photo-carousel__dot${index === activeIndex ? ' is-active' : ''}`}
             onClick={() => setActiveIndex(index)}
           />

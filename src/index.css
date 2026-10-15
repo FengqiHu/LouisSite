@@ -1148,3 +1148,57 @@ main {
   }
 
 }
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 0.3rem;
+  min-height: 32px;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.language-switch:hover {
+  background: var(--surface);
+  border-color: #b7bcb7;
+}
+
+.language-switch .is-active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.site-header .site-nav {
+  margin-left: auto;
+}
+
+html[lang='zh-CN'] body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+html[lang='zh-CN'] h1,
+html[lang='zh-CN'] h2,
+html[lang='zh-CN'] h3 {
+  letter-spacing: 0;
+}
+
+@media (max-width: 700px) {
+  .site-header__inner {
+    gap: 0.75rem;
+  }
+
+  .language-switch {
+    margin-left: auto;
+  }
+
+  .site-header .site-nav {
+    margin-left: 0;
+  }
+}

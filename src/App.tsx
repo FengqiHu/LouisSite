@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import SiteShell from './components/SiteShell'
+import { useLanguage } from './i18n/LanguageContext'
 import { trackVisit } from './lib/trackVisit'
 
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -12,6 +13,7 @@ const ContactPage = lazy(() => import('./pages/ContactPage'))
 let hasTrackedVisit = false
 
 export default function App() {
+  const { content: { ui } } = useLanguage()
   useEffect(() => {
     if (hasTrackedVisit) {
       return
@@ -27,7 +29,7 @@ export default function App() {
       <Suspense
         fallback={
           <div className="route-loading" role="status" aria-live="polite">
-            Loading page...
+            {ui.loading}
           </div>
         }
       >

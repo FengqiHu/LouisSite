@@ -1,46 +1,34 @@
 import { useState, type FormEvent } from "react";
-import { contactInfo, resume, socialLinks } from "../data/siteContent";
+import { useLanguage } from "../i18n/LanguageContext";
 import { sendMessage } from "../lib/sendMessage";
 
-type Status =
-  | { type: "idle"; text: "" }
-  | { type: "loading"; text: string }
-  | { type: "success"; text: string }
-  | { type: "error"; text: string };
+type Status = "idle" | "loading" | "mailto" | "sent" | "error";
 
 export default function ContactPage() {
+  const { content: { contactInfo, resume, socialLinks, ui } } = useLanguage();
   const phoneHref = "tel:+14108051208";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<Status>({ type: "idle", text: "" });
+  const [status, setStatus] = useState<Status>("idle");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setStatus({ type: "loading", text: "Sending message..." });
+    setStatus("loading");
 
     try {
       const result = await sendMessage({ name, email, message });
       if (result.mode === "mailto") {
         window.location.href = result.href;
-        setStatus({
-          type: "success",
-          text: "Email client opened. If it did not open, please use the direct email below.",
-        });
+        setStatus("mailto");
       } else {
-        setStatus({
-          type: "success",
-          text: "Message sent. Thanks for reaching out.",
-        });
+        setStatus("sent");
       }
       setName("");
       setEmail("");
       setMessage("");
     } catch {
-      setStatus({
-        type: "error",
-        text: "Unable to send right now. Please email me directly at hufq0611@outlook.com.",
-      });
+      setStatus("error");
     }
   };
 
@@ -48,19 +36,19 @@ export default function ContactPage() {
     <div className="page contact-page">
       <section className="section hero-block">
         <div className="section-head">
-          <p className="section-kicker">Contact Me</p>
-          <h1>Get in touch.</h1>
+          <p className="section-kicker">{ui.contactMe}</p>
+          <h1>{ui.contactTitle}</h1>
           <p>
-            Phone: <a href={phoneHref}>{contactInfo.phone}</a>
+            {ui.phone}: <a href={phoneHref}>{contactInfo.phone}</a>
             <br />
-            Email:{" "}
+            {ui.email}:{" "}
             <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
             <br />
             {contactInfo.location}
           </p>
           <p className="contact-resume-link">
             <a href={resume.href} target="_blank" rel="noreferrer">
-              Open {resume.title}
+              {ui.openResume}
             </a>
           </p>
         </div>
@@ -68,10 +56,10 @@ export default function ContactPage() {
 
       <section className="section contact-grid">
         <article className="content-panel contact-form-card">
-          <h2>Send me a Message</h2>
+          <h2>{ui.sendTitle}</h2>
           <form className="contact-form" onSubmit={handleSubmit}>
             <label>
-              Your Name
+              {ui.yourName}
               <input
                 value={name}
                 onChange={(event) => setName(event.target.value)}
@@ -79,7 +67,7 @@ export default function ContactPage() {
               />
             </label>
             <label>
-              Your Email
+              {ui.yourEmail}
               <input
                 type="email"
                 value={email}
@@ -88,7 +76,7 @@ export default function ContactPage() {
               />
             </label>
             <label>
-              Message
+              {ui.message}
               <textarea
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
@@ -99,15 +87,15 @@ export default function ContactPage() {
             <button
               className="button button--primary"
               type="submit"
-              disabled={status.type === "loading"}
+              disabled={status === "loading"}
             >
-              {status.type === "loading" ? "Sending..." : "Send Message"}
+              {status === "loading" ? ui.sending : ui.send}
             </button>
           </form>
 
-          {status.type !== "idle" ? (
-            <p className={`form-status form-status--${status.type}`}>
-              {status.text}
+          {status !== "idle" ? (
+            <p role="status" className={`form-status form-status--${status === "mailto" || status === "sent" ? "success" : status}`}>
+              {ui.status[status]}
             </p>
           ) : null}
 
@@ -122,7 +110,7 @@ export default function ContactPage() {
                 >
                   <img
                     src={social.icon}
-                    alt={`${social.label} logo`}
+                    alt={`${social.label} ${ui.logo}`}
                     width={22}
                     height={22}
                     loading="lazy"
@@ -140,18 +128,18 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <span>Open {resume.title}</span>
+                <span>{ui.openResume}</span>
               </a>
             </li>
           </ul>
         </article>
 
         <article className="content-panel contact-extra-card">
-          <h2>Scan for WeChat</h2>
+          <h2>{ui.wechat}</h2>
           <div className="qr-block">
             <img
               src={contactInfo.wechatQr}
-              alt="WeChat QR code"
+              alt={ui.qrAlt}
               width={320}
               height={430}
               loading="lazy"

@@ -1,37 +1,15 @@
 import PhotoCarousel from "../components/PhotoCarousel";
-import {
-  aboutIntro,
-  aboutNarrative,
-  aboutStats,
-  childhoodMoments,
-  galleryShots,
-  growthStory,
-  hobbies,
-  resume,
-} from "../data/siteContent";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function AboutPage() {
-  const childhoodTextOrder = [
-    "The LEGO RCX era",
-    "My Arduino phase",
-    "My first PC",
-  ];
-
-  const childhoodMomentsByTitle = new Map(
-    childhoodMoments.map((moment) => [moment.title, moment]),
-  );
-
-  const childhoodTextMoments = childhoodTextOrder
-    .map((title) => childhoodMomentsByTitle.get(title))
-    .filter(
-      (moment): moment is (typeof childhoodMoments)[number] => Boolean(moment),
-    );
+  const { content: { aboutIntro, aboutNarrative, aboutStats, childhoodMoments, galleryShots, growthStory, hobbies, resume, ui } } = useLanguage();
+  const childhoodTextMoments = [...childhoodMoments].reverse();
 
   return (
     <div className="page about-page">
       <section className="section hero-block">
         <div className="section-head section-head--tight">
-          <p className="section-kicker">About Me</p>
+          <p className="section-kicker">{ui.aboutMe}</p>
           <h1>{aboutIntro.title}</h1>
           <p className="lead-paragraph">{aboutIntro.description}</p>
           <p className="lead-spotlight">“{aboutNarrative.spotlight}”</p>
@@ -48,8 +26,8 @@ export default function AboutPage() {
 
       <section className="section about-childhood-layout">
         <article className="content-panel text-focus-card">
-          <p className="section-kicker">From a child to full-stack</p>
-          <h2>Where it started.</h2>
+          <p className="section-kicker">{ui.childhood}</p>
+          <h2>{ui.origin}</h2>
           <p>{aboutNarrative.origin}</p>
           <ul className="origin-list">
             {childhoodTextMoments.map((moment) => (
@@ -63,8 +41,8 @@ export default function AboutPage() {
 
         <article className="content-panel childhood-showcase">
           <div className="childhood-showcase__head">
-            <p className="section-kicker">Early Milestones</p>
-            <h2>Key Moments</h2>
+            <p className="section-kicker">{ui.milestones}</p>
+            <h2>{ui.moments}</h2>
           </div>
           <div className="childhood-image-grid">
             {childhoodMoments.map((moment) => (
@@ -90,7 +68,7 @@ export default function AboutPage() {
       <section className="section about-growth">
         <article className="growth-cinematic">
           <header className="growth-cinematic__header">
-            <p className="section-kicker">My Professional Growth</p>
+            <p className="section-kicker">{ui.growth}</p>
             <h2>{growthStory.title}</h2>
           </header>
           <p className="growth-cinematic__lead">{growthStory.first}</p>
@@ -111,7 +89,7 @@ export default function AboutPage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                View Resume
+                {ui.viewResume}
               </a>
             </div>
           </div>
@@ -120,15 +98,15 @@ export default function AboutPage() {
 
       <section className="section about-offline">
         <div className="section-head section-head--tight">
-          <p className="section-kicker">Beyond Code</p>
-          <h2>Life Offline</h2>
+          <p className="section-kicker">{ui.beyondCode}</p>
+          <h2>{ui.offline}</h2>
         </div>
         <article className="about-offline__layout">
           <PhotoCarousel shots={galleryShots} />
 
           <div className="content-panel about-offline__story">
-            <p className="section-kicker">Life Snapshot</p>
-            <h3>What I Do Beyond Coding</h3>
+            <p className="section-kicker">{ui.snapshot}</p>
+            <h3>{ui.beyondCoding}</h3>
             <p>{hobbies}</p>
             <a
               className="about-offline__video-link"
@@ -138,7 +116,7 @@ export default function AboutPage() {
             >
               <img
                 src="/images/razer-review.webp"
-                alt="Razer Mouse Review video thumbnail"
+                alt={ui.videoAlt}
                 width={1200}
                 loading="lazy"
                 decoding="async"
