@@ -12,6 +12,7 @@ const ui = {
   growth: 'My Professional Growth', viewResume: 'View Resume', beyondCode: 'Beyond Code', offline: 'Life Offline', snapshot: 'Life Snapshot', beyondCoding: 'What I Do Beyond Coding', videoAlt: 'Razer Mouse Review video thumbnail',
   myProjects: 'My Projects', projectsTitle: 'Projects & research.',
   projectsIntro: 'From full-stack platforms to deep learning systems, these projects reflect my focus on practical impact, scalability, and clean architecture.',
+  researchProjects: 'Research Projects', developmentProjects: 'Projects', citation: 'Citation',
   projectList: 'Project list', reference: 'View Reference', referenceFor: 'View reference for', details: 'Details', professional: 'Professional Experience', workExperience: 'Work experience.', companyWebsite: 'Company Website',
   contactTitle: 'Get in touch.', openResume: 'Open Resume (PDF)', sendTitle: 'Send me a Message', yourName: 'Your Name', yourEmail: 'Your Email', message: 'Message', send: 'Send Message', sending: 'Sending...',
   status: {
@@ -36,6 +37,7 @@ const zhUi: typeof ui = {
   growth: '我的专业成长', viewResume: '查看简历', beyondCode: '代码之外', offline: '生活的一面', snapshot: '生活剪影', beyondCoding: '编程之外的我', videoAlt: '雷蛇鼠标评测视频封面',
   myProjects: '我的项目', projectsTitle: '项目与研究。',
   projectsIntro: '从全栈平台到深度学习系统，这些项目体现了我对实际应用、可扩展性与清晰架构的关注。',
+  researchProjects: '研究项目', developmentProjects: '开发项目', citation: '论文引用',
   projectList: '项目列表', reference: '查看相关资料', referenceFor: '查看项目资料：', details: '项目详情', professional: '职业经历', workExperience: '工作经历。', companyWebsite: '公司网站',
   contactTitle: '期待与你交流。', openResume: '查看简历（PDF）', sendTitle: '给我留言', yourName: '你的姓名', yourEmail: '你的邮箱', message: '留言内容', send: '发送留言', sending: '发送中…',
   status: {

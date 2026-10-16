@@ -32,6 +32,9 @@ export type ProjectItem = {
   id: string
   title: string
   tags: string[]
+  category?: 'research'
+  citation?: string
+  doi?: string
   summary: string
   status?: string
   image?: string
@@ -254,6 +257,7 @@ export const hobbies =
 export const projects: ProjectItem[] = [
   {
     id: 'robust-rllib',
+    category: 'research',
     title: 'Robust-RLlib: Benchmarking RL Robustness under Deployment Shifts',
     tags: ['Research', 'Reinforcement Learning', 'SAC', 'IQL', 'Sim-to-Real'],
     status: 'In preparation',
@@ -282,13 +286,16 @@ export const projects: ProjectItem[] = [
   },
   {
     id: 'python-trends',
+    category: 'research',
     title: "Python's Evolution on Stack Overflow: An Empirical Analysis of Topic Trends",
     tags: ['Research', 'Data Analysis', 'GBDT', 'Machine Learning'],
     summary:
       'This study analyzed 2M+ Python-related Stack Overflow posts to understand changing developer interests, topics, and library usage. I used multi-rater annotation and optimized a GBDT classifier, achieving 91.38% accuracy on all posts and 90.56% on unanswered posts, outperforming four baseline models. The work was published in the Journal of Computer Languages, with me as first author.',
     image: '/images/project-python-trends.webp',
     alt: 'Python trend analysis project visual',
-    href: 'https://www.sciencedirect.com/science/article/abs/pii/S2590118425000267',
+    href: 'https://doi.org/10.1016/j.cola.2025.101340',
+    citation: 'F. Hu et al., “Python’s evolution on Stack Overflow: An empirical analysis of topic trends,” Journal of Computer Languages, vol. 84, Art. no. 101340, 2025.',
+    doi: '10.1016/j.cola.2025.101340',
     imagePosition: 'center 82%',
   },
   {

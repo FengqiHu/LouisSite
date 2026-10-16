@@ -635,10 +635,6 @@ main {
   height: 7px;
 }
 
-.projects-page .hero-block {
-  margin-top: 2rem;
-}
-
 .projects-page .hero-block .section-head {
   max-width: none;
   display: grid;
@@ -662,8 +658,11 @@ main {
 }
 
 .projects-page .projects-list-section {
-  margin-top: 1.75rem;
   padding-top: 0;
+}
+
+.projects-page .projects-list-section + .projects-list-section {
+  margin-top: 1.75rem;
 }
 
 .project-list {
@@ -698,7 +697,7 @@ main {
   padding-inline: 0.5rem;
 }
 
-.project-card h2 {
+.project-card h3 {
   font-size: 1.25rem;
   letter-spacing: -0.015em;
   line-height: 1.4;
@@ -713,6 +712,18 @@ main {
   max-width: 75ch;
   font-size: 1rem;
   line-height: 1.8;
+}
+
+.project-card__details .project-card__citation {
+  max-width: none;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.project-card__citation a {
+  color: inherit;
 }
 
 .project-card__details summary {
@@ -1114,7 +1125,7 @@ main {
     gap: 0.35rem;
   }
 
-  .project-card h2 {
+  .project-card h3 {
     font-size: 1.125rem;
   }
 
